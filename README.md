@@ -57,7 +57,15 @@ Cyclistic’s finance analysts have concluded that annual members are much more 
 
 ## Ask 
 
+### Analysis Questions
 
+Three questions will guide the future marketing program:
+1. How do annual members and casual riders use Cyclistic bikes differently?
+2. Why would casual riders buy Cyclistic annual memberships?
+3. How can Cyclistic use digital media to influence casual riders to become members?
+
+The first question to answer was assigned to me: *How do annual members and casual
+riders use Cyclistic bikes differently?*
 
 <br/>
 
