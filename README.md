@@ -22,7 +22,7 @@ In this case study, I will perform real-world tasks as a junior data analyst for
 
 ## Background and Business Question
 
-# Cyclistic
+### Cyclistic
 
 Cyclistic is a bike-share company in Chicago. In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime.
 
@@ -34,7 +34,7 @@ Cyclistic’s finance analysts have concluded that annual members are much more 
 
 <br/>
 
-# Characters and teams
+### Characters and teams
 
 - **Cyclistic marketing analytics team:** A team of data analysts who are responsible for collecting, analyzing, and reporting data that helps guide Cyclistic marketing strategy.
 
@@ -46,7 +46,7 @@ Cyclistic’s finance analysts have concluded that annual members are much more 
 
 <br/>
 
-# Scenario 
+### Scenario 
 
 **Moreno has set a clear goal:** Design marketing strategies aimed at converting casual riders into annual members.
 
