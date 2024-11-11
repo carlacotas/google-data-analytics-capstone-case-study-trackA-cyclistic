@@ -1,7 +1,7 @@
 # Google Data Analytics Course - Capstone Project (November 2024)
 # Case study: How does a bike-share navigate speedy success?  🚴🚲👩‍💻📈📊
 
-This project contains a solution for the Capstone of [Google Data Analytics Professional Certificate Program]([https://info.lewagon.com/women-data-day-lisbon#admission](https://www.coursera.org/professional-certificates/google-data-analytics)) from [Google]([https://www.lewagon.com/lisbon](https://www.coursera.org/google-career-certificates)) 
+This project contains a solution for the Capstone of [Google Data Analytics Professional Certificate Program](https://www.coursera.org/professional-certificates/google-data-analytics) from [Google](https://www.coursera.org/google-career-certificates) 
 
 ## Google Data Analytics Course 📈📊 
 
