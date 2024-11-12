@@ -84,7 +84,7 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses R-Studio Desktop for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
-The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded R-Studio Desktop and renamed for simplicity and improve readability.
+The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
 <br/>
 
