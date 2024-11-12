@@ -76,7 +76,7 @@ riders use Cyclistic bikes differently?_**
 
 Cyclistic’s historical trip data to analyze and identify trends is available [here](https://divvy-tripdata.s3.amazonaws.com/index.html).
 
-This study analyzes and identifies trends from the previous 12 months: November 2023 to October 2024 (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’).
+This study analyzes and identifies trends from the previous 12 months: November 2023 to October 2024 (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’).
 
 *The data has been made available by Motivate International Inc. under this [license](https://divvybikes.com/data-license-agreement). This is public data that can use to explore how different customer types are using Cyclistic bikes. But note that data-privacy issues prohibit from using riders’ personally identifiable information. This means that you won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes.*
 
