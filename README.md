@@ -86,7 +86,7 @@ The Cyclistic’s historical trip data is available to download in zip files (�
 
 The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
-**Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in RStudio Desktop and I could only renaiming 6 files - when renaiming 7 files, RStudio Desktop crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because RStudio Desktop does not crashes due to Memory Usage.
+> **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in RStudio Desktop and I could only renaiming 6 files - when renaiming 7 files, RStudio Desktop crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because RStudio Desktop does not crashes due to Memory Usage.
 
 ```
 CyclisticTripData_2023_11 <- read.csv("202311-divvy-tripdata.csv")
