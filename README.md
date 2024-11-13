@@ -82,9 +82,13 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 ### Data Preparation
 
-The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses R-Studio Desktop for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
+The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses RStudio Desktop for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
 The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
+
+**Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in RStudio Desktop and I could only renaiming 6 files - when renaiming 7 files, RStudio Desktop crashes. So I decided to complete this project focusing the previous 6 months: May 2024 to October 2024 (‘202403-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’).
+
+
 
 <br/>
 
