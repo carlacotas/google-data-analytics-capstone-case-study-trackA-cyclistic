@@ -100,6 +100,7 @@ The variables CyclisticTripData_YYYY_MM were assigned and were added automatical
 
 ![image](https://github.com/user-attachments/assets/038252d7-35db-4227-8124-2e0f8355b9e9)
 
+Key findings:
 - the data is organized in CSV (comma-separated values) format
 - each data file has 13 columns
 - the number of observations/rows is different every month
