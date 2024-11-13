@@ -86,9 +86,23 @@ The Cyclistic’s historical trip data is available to download in zip files (�
 
 The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
-**Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in RStudio Desktop and I could only renaiming 6 files - when renaiming 7 files, RStudio Desktop crashes. So I decided to complete this project focusing the previous 6 months: May 2024 to October 2024 (‘202403-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’).
+**Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in RStudio Desktop and I could only renaiming 6 files - when renaiming 7 files, RStudio Desktop crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because RStudio Desktop does not crashes due to Memory Usage.
 
+```
+CyclisticTripData_2023_11 <- read.csv("202311-divvy-tripdata.csv")
+CyclisticTripData_2023_12 <- read.csv("202312-divvy-tripdata.csv")
+CyclisticTripData_2024_01 <- read.csv("202401-divvy-tripdata.csv")
+CyclisticTripData_2024_02 <- read.csv("202402-divvy-tripdata.csv")
+CyclisticTripData_2024_03 <- read.csv("202403-divvy-tripdata.csv")
+CyclisticTripData_2024_04 <- read.csv("202404-divvy-tripdata.csv")
+```
+The variables CyclisticTripData_YYYY_MM were assigned and were added to the environment:
 
+![image](https://github.com/user-attachments/assets/038252d7-35db-4227-8124-2e0f8355b9e9)
+
+- the data is organized in CSV (comma-separated values) format
+- each data file has 13 columns
+- the number of observations/rows is different every month
 
 <br/>
 
