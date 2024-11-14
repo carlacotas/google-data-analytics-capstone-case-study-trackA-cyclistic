@@ -82,7 +82,7 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 ### Data Preparation
 
-The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses RStudio Desktop for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
+The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses [RStudio Desktop free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
 The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
@@ -104,6 +104,31 @@ Key findings:
 - the data is organized in CSV (comma-separated values) format
 - each data file has 13 columns
 - the number of observations/rows is different every month
+
+A check summary data was performed for exploring the data to ensure that the original data files have the same number of columns and the same column names before moving to the next step and merge them in only one data set.
+```
+CyclisticTripData_dfs = list(CyclisticTripData_2023_11, CyclisticTripData_2023_12, 
+                             CyclisticTripData_2024_01, CyclisticTripData_2024_02,
+                             CyclisticTripData_2024_03, CyclisticTripData_2024_04)
+
+for (CyclisticTripData_df in CyclisticTripData_dfs) {
+  glimpse(CyclisticTripData_df)
+}
+
+for (CyclisticTripData_df in CyclisticTripData_dfs) {
+  str(CyclisticTripData_df)
+}
+```
+The summary data includes ID, rideable type, started and ended time, start and end station - name, id, latitude and longitude, and member type.  
+
+![image](https://github.com/user-attachments/assets/f0a15051-ad1f-4441-9c45-3aa549cbb33e)
+
+And, in a very exploratory analysis, there are some data inconsistencies.
+
+![image](https://github.com/user-attachments/assets/dd5a895c-47c4-484a-b125-74b525fdc455)
+
+The data can be trusted, it is published in a trustworthiness source and it is aligned with the question that was assigned to me. However, all ride ids are unique and due to data privacy prohibiting
+using rider's personally identifiable information, it will not be possible to determine if riders have purchased multiple single passes.
 
 <br/>
 
