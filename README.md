@@ -82,7 +82,7 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 ### Data Preparation
 
-The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses [RStudio Desktop free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
+The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses [RStudio Desktop - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
 The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
@@ -119,7 +119,7 @@ for (CyclisticTripData_df in CyclisticTripData_dfs) {
   str(CyclisticTripData_df)
 }
 ```
-The summary data includes ID, rideable type, started and ended time, start and end station - name, id, latitude and longitude, and member type.  
+The summary data includes ride id, rideable type, started and ended time, start and end station - name, id, latitude and longitude, and member type.  
 
 ![image](https://github.com/user-attachments/assets/f0a15051-ad1f-4441-9c45-3aa549cbb33e)
 
