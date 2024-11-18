@@ -106,21 +106,23 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 ### Data Preparation
 
-The Cyclistic’s historical trip data is available to download in zip files (‘202211-divvy-tripdata.zip’ → ‘202410-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202211-divvy-tripdata.csv’ → ‘202410-divvy-tripdata.csv’). This study uses [RStudio Desktop - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
+> ⚠️ **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in Posit’s RStudio and I could only renaiming 6 files - when renaiming 7 files, Posit’s RStudio crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio does not crashes due to Memory Usage. However, when merging data in the [Process](#process), Posit’s RStudio crashes! So, following the tip from the Case Study Roadmap for the Data Process, I use the ‘Divvy_Trips_2019_Q2.csv’ to ‘Divvy_Trips_2020_Q1.csv’ datasets (April 2019 to March 2020).
+Q1 datasets
 
-The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
+The Cyclistic’s historical trip data is available to download in zip files (‘Divvy_Trips_2019_Q2.csv’ → ‘Divvy_Trips_2020_Q1.csv’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘Divvy_Trips_2019_Q2.csv’ → ‘Divvy_Trips_2020_Q1.csv’). This study uses [Posit’s RStudio - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
-> **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in RStudio Desktop and I could only renaiming 6 files - when renaiming 7 files, RStudio Desktop crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because RStudio Desktop does not crashes due to Memory Usage.
+The original data files, naming convention of Divvy_Trips_YYYY_(Q1, Q2, Q3 and Q4), were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
+
+
 
 ```
-CyclisticTripData_2023_11 <- read.csv("202311-divvy-tripdata.csv")
-CyclisticTripData_2023_12 <- read.csv("202312-divvy-tripdata.csv")
-CyclisticTripData_2024_01 <- read.csv("202401-divvy-tripdata.csv")
-CyclisticTripData_2024_02 <- read.csv("202402-divvy-tripdata.csv")
-CyclisticTripData_2024_03 <- read.csv("202403-divvy-tripdata.csv")
-CyclisticTripData_2024_04 <- read.csv("202404-divvy-tripdata.csv")
+CyclisticTripData_2019_Q2 <- read.csv("Divvy_Trips_2019_Q2.csv")
+CyclisticTripData_2019_Q3 <- read.csv("Divvy_Trips_2019_Q3.csv")
+CyclisticTripData_2019_Q4 <- read.csv("Divvy_Trips_2019_Q2.csv")
+CyclisticTripData_2020_Q1 <- read.csv("Divvy_Trips_2020_Q1.csv")
+
 ```
-The variables CyclisticTripData_YYYY_MM were assigned and were added automatically to the environment:
+The variables (Q1, Q2, Q3 and Q4) were assigned and were added automatically to the environment:
 
 ![image](https://github.com/user-attachments/assets/038252d7-35db-4227-8124-2e0f8355b9e9)
 
@@ -157,6 +159,7 @@ using rider's personally identifiable information, it will not be possible to de
 <br/>
 
 ## Process
+
 
 
 
