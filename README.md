@@ -149,7 +149,7 @@ for (CyclisticTripData_df in CyclisticTripData_dfs) {
 ![image](https://github.com/user-attachments/assets/c59aaa00-f67e-4fc7-81f7-111fddb8e5cc)
 
 - **CyclisticTripData_2019_Q4**
-The summary data includes tripe id, started and ended time, bike id, trip duration, start and end station - name and id, user type, gender and birthyear.
+The summary data includes trip id, started and ended time, bike id, trip duration, start and end station - name and id, user type, gender and birthyear.
   
 ![image](https://github.com/user-attachments/assets/d7f2d564-f512-4ee9-aa6e-8404bf661411)
 
