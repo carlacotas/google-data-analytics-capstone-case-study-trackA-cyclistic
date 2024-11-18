@@ -148,33 +148,45 @@ for (CyclisticTripData_df in CyclisticTripData_dfs) {
 
 ![image](https://github.com/user-attachments/assets/c59aaa00-f67e-4fc7-81f7-111fddb8e5cc)
 
-- CyclisticTripData_2019_Q4
-The summary data includes tripe id, started and ended time, bike id, trip duration, start and end station - name and id, user type, gender and birthyear.  
+- **CyclisticTripData_2019_Q4**
+The summary data includes tripe id, started and ended time, bike id, trip duration, start and end station - name and id, user type, gender and birthyear.
+  
 ![image](https://github.com/user-attachments/assets/d7f2d564-f512-4ee9-aa6e-8404bf661411)
 
-- CyclisticTripData_2020_Q1
+- **CyclisticTripData_2020_Q1**
 The summary data includes ride id, rideable type, started and ended time, start and end station - name, id, latitude and longitude, and member type.
+
 ![image](https://github.com/user-attachments/assets/eccabba5-f857-4528-ac29-57a518aa388d)
+
 
 And, in a very exploratory analysis, there are some datatype inconsistencies.
 
-- CyclisticTripData_2019_Q4
-![image](https://github.com/user-attachments/assets/6eee9c23-d1a2-47d6-90b1-69d9d5443185)
+- **CyclisticTripData_2019_Q4**
+
+![image](https://github.com/user-attachments/assets/4d214729-ba46-43d1-bef1-f4c93704507f)
 
 
-- CyclisticTripData_2020_Q1
-![image](https://github.com/user-attachments/assets/73907e8c-e870-4b70-8947-c2b59da99f47)
+
+- **CyclisticTripData_2020_Q1**
+
+![image](https://github.com/user-attachments/assets/fd0f335d-9ba5-4789-bd28-5690dab695d0)
 
 
 The data can be trusted, it is published in a trustworthiness source and it is aligned with the question that was assigned to me. However, all ride ids are unique and due to data privacy prohibiting
-using rider's personally identifiable information, it will not be possible to determine if riders have purchased multiple single passes.
+using rider's personally identifiable information, it will not be possible to determine if riders have purchased multiple single passes. Moreover, the problems with data identified lead to the need to process the data and clean it for analysis.
 
 <br/>
 
 ## Process
 
+The Process step is where the data is processed for analysis:
+- data cleaning
+- data manipulation
+
+### Data cleaning
 
 
+### Data manipulation
 
 <br/>
 
