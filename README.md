@@ -106,36 +106,36 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 ### Data Preparation
 
-> ⚠️ **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in Posit’s RStudio and I could only renaiming 6 files - when renaiming 7 files, Posit’s RStudio crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio does not crashes due to Memory Usage. However, when merging data in the [Process](#process), Posit’s RStudio crashes! So, following the tip from the Case Study Roadmap for the Data Process, I use the ‘Divvy_Trips_2019_Q2.csv’ to ‘Divvy_Trips_2020_Q1.csv’ datasets (April 2019 to March 2020).
+> ⚠️ **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in Posit’s RStudio and I could only renaiming 6 files - when renaiming 7 files, Posit’s RStudio crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio does not crashes due to Memory Usage. However, when merging data in the [Process](#process), Posit’s RStudio crashes! So, following the tip from the Case Study Roadmap for the Data Process, I use the ‘Divvy_Trips_2019_Q4.csv’ to ‘Divvy_Trips_2020_Q1.csv’ datasets (October 2019 to March 2020).
 Q1 datasets
 
 The Cyclistic’s historical trip data is available to download in zip files (‘Divvy_Trips_2019_Q2.csv’ → ‘Divvy_Trips_2020_Q1.csv’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘Divvy_Trips_2019_Q2.csv’ → ‘Divvy_Trips_2020_Q1.csv’). This study uses [Posit’s RStudio - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
-The original data files, naming convention of Divvy_Trips_YYYY_(Q1, Q2, Q3 and Q4), were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
+The original data files, naming convention of Divvy_Trips_YYYY_(Q1 and Q4), were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
 
 
 ```
-CyclisticTripData_2019_Q2 <- read.csv("Divvy_Trips_2019_Q2.csv")
-CyclisticTripData_2019_Q3 <- read.csv("Divvy_Trips_2019_Q3.csv")
-CyclisticTripData_2019_Q4 <- read.csv("Divvy_Trips_2019_Q2.csv")
+CyclisticTripData_2019_Q4 <- read.csv("Divvy_Trips_2019_Q4.csv")
 CyclisticTripData_2020_Q1 <- read.csv("Divvy_Trips_2020_Q1.csv")
 
 ```
-The variables (Q1, Q2, Q3 and Q4) were assigned and were added automatically to the environment:
+The variables Divvy_Trips_YYYY_(Q1 and Q4) were assigned and were added automatically to the environment:
 
-![image](https://github.com/user-attachments/assets/038252d7-35db-4227-8124-2e0f8355b9e9)
+![image](https://github.com/user-attachments/assets/a2f121b6-256b-4fb5-b629-607d219f8f01)
+
 
 Key findings:
 - the data is organized in CSV (comma-separated values) format
-- each data file has 13 columns
-- the number of observations/rows is different every month
+- there is an inconsistency in the column numbers: Q1 at 2020 has 13 columns and Q4 at 2019 only has 12 columns
+- the number of observations/rows is different every Quarter
 
-A check summary data was performed for exploring the data to ensure that the original data files have the same number of columns and the same column names before moving to the next step and merge them in only one data set.
+A check summary data was performed for exploring the inconsistency in the column numbers that the original data files have and to ensure the same number of columns and the same column names before moving to the next step and merge them in only one data set.
 ```
-CyclisticTripData_dfs = list(CyclisticTripData_2023_11, CyclisticTripData_2023_12, 
-                             CyclisticTripData_2024_01, CyclisticTripData_2024_02,
-                             CyclisticTripData_2024_03, CyclisticTripData_2024_04)
+colnames(CyclisticTripData_2019_Q4)
+colnames(CyclisticTripData_2020_Q1)
+
+CyclisticTripData_dfs = list(CyclisticTripData_2019_Q4, CyclisticTripData_2020_Q1)
 
 for (CyclisticTripData_df in CyclisticTripData_dfs) {
   glimpse(CyclisticTripData_df)
@@ -145,13 +145,26 @@ for (CyclisticTripData_df in CyclisticTripData_dfs) {
   str(CyclisticTripData_df)
 }
 ```
-The summary data includes ride id, rideable type, started and ended time, start and end station - name, id, latitude and longitude, and member type.  
 
-![image](https://github.com/user-attachments/assets/f0a15051-ad1f-4441-9c45-3aa549cbb33e)
+![image](https://github.com/user-attachments/assets/c59aaa00-f67e-4fc7-81f7-111fddb8e5cc)
 
-And, in a very exploratory analysis, there are some data inconsistencies.
+- CyclisticTripData_2019_Q4
+The summary data includes tripe id, started and ended time, bike id, trip duration, start and end station - name and id, user type, gender and birthyear.  
+![image](https://github.com/user-attachments/assets/d7f2d564-f512-4ee9-aa6e-8404bf661411)
 
-![image](https://github.com/user-attachments/assets/dd5a895c-47c4-484a-b125-74b525fdc455)
+- CyclisticTripData_2020_Q1
+The summary data includes ride id, rideable type, started and ended time, start and end station - name, id, latitude and longitude, and member type.
+![image](https://github.com/user-attachments/assets/eccabba5-f857-4528-ac29-57a518aa388d)
+
+And, in a very exploratory analysis, there are some datatype inconsistencies.
+
+- CyclisticTripData_2019_Q4
+![image](https://github.com/user-attachments/assets/6eee9c23-d1a2-47d6-90b1-69d9d5443185)
+
+
+- CyclisticTripData_2020_Q1
+![image](https://github.com/user-attachments/assets/73907e8c-e870-4b70-8947-c2b59da99f47)
+
 
 The data can be trusted, it is published in a trustworthiness source and it is aligned with the question that was assigned to me. However, all ride ids are unique and due to data privacy prohibiting
 using rider's personally identifiable information, it will not be possible to determine if riders have purchased multiple single passes.
