@@ -106,12 +106,12 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 ### Data Preparation
 
-> ⚠️ **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in Posit’s RStudio and I could only renaiming 6 files - when renaiming 7 files, Posit’s RStudio crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio does not crashes due to Memory Usage. However, when merging data in the [Process](#process), Posit’s RStudio crashes! So, following the tip from the Case Study Roadmap for the Data Process, I use the ‘Divvy_Trips_2019_Q4.csv’ to ‘Divvy_Trips_2020_Q1.csv’ datasets (October 2019 to March 2020).
+> ⚠️ **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in Posit’s RStudio and I could only renaiming 6 files - when renaiming 7 files, Posit’s RStudio crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio does not crashes due to Memory Usage. However, when merging data in the [Process](#process), Posit’s RStudio crashes! So, following the tip from the Case Study Roadmap for the Data Process, I use the ‘Divvy_Trips_2019_Q4.csv’ and ‘Divvy_Trips_2020_Q1.csv’ datasets (October 2019 to March 2020).
 Q1 datasets
 
-The Cyclistic’s historical trip data is available to download in zip files (‘Divvy_Trips_2019_Q2.csv’ → ‘Divvy_Trips_2020_Q1.csv’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘Divvy_Trips_2019_Q2.csv’ → ‘Divvy_Trips_2020_Q1.csv’). This study uses [Posit’s RStudio - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
+The Cyclistic’s historical trip data is available to download in zip files (‘Divvy_Trips_2019_Q2.csv’ and ‘Divvy_Trips_2020_Q1.csv’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘Divvy_Trips_2019_Q2.csv’ and ‘Divvy_Trips_2020_Q1.csv’). This study uses [Posit’s RStudio - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
-The original data files, naming convention of Divvy_Trips_YYYY_(Q1 and Q4), were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
+The original data files, naming convention of Divvy_Trips_YYYY_(Q1/Q4), were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
 
 
 
@@ -120,14 +120,14 @@ CyclisticTripData_2019_Q4 <- read.csv("Divvy_Trips_2019_Q4.csv")
 CyclisticTripData_2020_Q1 <- read.csv("Divvy_Trips_2020_Q1.csv")
 
 ```
-The variables Divvy_Trips_YYYY_(Q1 and Q4) were assigned and were added automatically to the environment:
+The variables Divvy_Trips_YYYY_(Q1/Q4) were assigned and were added automatically to the environment:
 
 ![image](https://github.com/user-attachments/assets/a2f121b6-256b-4fb5-b629-607d219f8f01)
 
 
 Key findings:
 - the data is organized in CSV (comma-separated values) format
-- there is an inconsistency in the column numbers: Q1 at 2020 has 13 columns and Q4 at 2019 only has 12 columns
+- there is an inconsistency in the column numbers: 2020, Q1 has 13 columns - 2019, Q4 only has 12 columns
 - the number of observations/rows is different every Quarter
 
 A check summary data was performed for exploring the inconsistency in the column numbers that the original data files have and to ensure the same number of columns and the same column names before moving to the next step and merge them in only one data set.
