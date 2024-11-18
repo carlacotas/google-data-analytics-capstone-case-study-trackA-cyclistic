@@ -72,6 +72,30 @@ riders use Cyclistic bikes differently?_**
 
 ## Prepare
 
+### Folder Structure
+
+The local directory, folders, sub-folders and file-naming conventions follow the structure below:
+
+```
+|--YYYYMMDD_CyclisticBikeShare
+  |-- 1.OriginalData
+  |-- 2.PreparedData
+  |-- 3.UploadedData
+    |-- !YYYYMMDD
+  |-- 4.Analysis
+    |-- DataErrors
+    |-- RStudio Code
+    |-- Figures
+  |-- 5.Insights
+    |-- MyInsights
+    |-- SharedInsights
+  |-- 6.Final
+    |-- Report
+    |-- Presentation
+```
+
+
+
 ### Data Source
 
 Cyclistic’s historical trip data to analyze and identify trends is available [here](https://divvy-tripdata.s3.amazonaws.com/index.html).
