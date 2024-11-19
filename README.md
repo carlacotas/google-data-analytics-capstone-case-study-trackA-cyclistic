@@ -237,7 +237,7 @@ Typing ```View(CyclisticTripData)``` on the console returns how the _CyclisticTr
 
 Now, the large dataframe is ready to check that data is clean, free of errors and check if modifying data is needed.
 
-> Note: The large dataframe is expoerted to due to Posit’s RStudio Memory Usage limit on the free version!
+> Note: The large dataframe is exported to continue working in another R script due to Posit’s RStudio Memory Usage limit on the free version!
 
 ```
 write.csv(CyclisticTripData,"CyclisticTripData.csv", row.names = FALSE)
@@ -272,9 +272,12 @@ write.csv(CyclisticTripData,"CyclisticTripData.csv", row.names = FALSE)
 ## What's in this project? 👩‍💻
 
 `README.md`: That's this file, where you can describe your project and how you built it.
+
 <p/>
+  
 `20241113_DataPreparation_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Data Preparation](#data-preparation) and [Process - Data Cleaning](#data-cleaning).
 
+<p/>
 
 
 <br/>
