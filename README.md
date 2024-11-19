@@ -272,9 +272,10 @@ write.csv(CyclisticTripData,"CyclisticTripData.csv", row.names = FALSE)
 ## What's in this project? 👩‍💻
 
 `README.md`: That's this file, where you can describe your project and how you built it.
+<p/>
 `20241113_DataPreparation_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Data Preparation](#data-preparation) and [Process - Data Cleaning](#data-cleaning).
 
-<p/>
+
 
 <br/>
 
