@@ -163,13 +163,11 @@ And, in a very exploratory analysis, there are some datatype inconsistencies.
 
 - **CyclisticTripData_2019_Q4**
 
-![image](https://github.com/user-attachments/assets/8967e607-48fe-4b54-b919-b3bb7fcacc23)
-
+![image](https://github.com/user-attachments/assets/c44d0fd9-175b-40a6-a8e1-72d5f26b3651)
 
 - **CyclisticTripData_2020_Q1**
 
-![image](https://github.com/user-attachments/assets/ed7c1ae1-03dc-4b08-8b6f-cfec0e9b6532)
-
+![image](https://github.com/user-attachments/assets/10c2671c-606f-406e-b93e-4d83f433edd4)
 
 The data can be trusted, it is published in a trustworthiness source and it is aligned with the question that was assigned to me. However, all ride ids are unique and due to data privacy prohibiting
 using rider's personally identifiable information, it will not be possible to determine if riders have purchased multiple single passes. Moreover, the problems with data identified lead to the need to process the data and clean it for analysis.
@@ -182,8 +180,8 @@ In this step, the two datasets are combined into one dataset, clean it and manip
 
 ### Data cleaning
 
-Before combining the tow datasets (‘CyclisticTripData_2019_Q4’ and ‘CyclisticTripData_2020_Q1’) into one dataset (‘CyclisticTripData’), the inconsistency in columns names in each dataframe needs to be addressed by renaming the columns to ensure uniformity.
-The columns names are renaming considering the most recent naming convention - CyclisticTripData_2020_Q1.
+Before combining the tow datasets (‘CyclisticTripData_2019_Q4’ and ‘CyclisticTripData_2020_Q1’) into one dataset (‘CyclisticTripData’), the inconsistency in column names in each dataframe needs to be addressed by renaming the columns to ensure uniformity.
+The column names are renaming considering the most recent naming convention - CyclisticTripData_2020_Q1.
 
 ```
 (CyclisticTripData_2019_Q4 <- rename(CyclisticTripData_2019_Q4
@@ -197,13 +195,32 @@ The columns names are renaming considering the most recent naming convention - C
                    ,end_station_name = to_station_name
                    ,member_casual = usertype))
 ```
-Now that the columns names are the same, the datatype for the columns _ride_id_ and _rideable_type_ needs to be uniform for combining the two dataframes.
+Now that the column names are the same, the datatype for the columns _ride_id_ and _rideable_type_ needs to be uniform for combining the two dataframes.
 
 ```
 CyclisticTripData_2019_Q4 <- mutate(CyclisticTripData_2019_Q4, ride_id = as.character(ride_id)
                                     ,rideable_type = as.character(rideable_type))
 ```
 
+The data attributes now are uniform! The two dataframes can be combined into only one dataframe for analyzing 6 months of data.
+
+```
+CyclisticTripData <- bind_rows(CyclisticTripData_2019_Q4, CyclisticTripData_2020_Q1)
+```
+
+![image](https://github.com/user-attachments/assets/9fc2cd5a-65bf-4782-bab3-b25a979eae11)
+
+Then the large dataframe can be verified to check very quickly to get a better data sensitivity.
+
+```
+colnames(CyclisticTripData)
+glimpse(CyclisticTripData)
+head(CyclisticTripData)
+tail(CyclisticTripData)
+```
+
+From looking at the output information, the columns _start_lat_, _start_lng_, _end_lat_ and _end_lng_ can be removed because the data were collected only at ‘CyclisticTripData_2020_Q1’.
+Also, the columns _birthyear_ and _gender_ can be removed because the data were collected only at ‘CyclisticTripData_2019_Q4’.
 
 
 
