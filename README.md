@@ -163,13 +163,12 @@ And, in a very exploratory analysis, there are some datatype inconsistencies.
 
 - **CyclisticTripData_2019_Q4**
 
-![image](https://github.com/user-attachments/assets/4d214729-ba46-43d1-bef1-f4c93704507f)
-
+![image](https://github.com/user-attachments/assets/8967e607-48fe-4b54-b919-b3bb7fcacc23)
 
 
 - **CyclisticTripData_2020_Q1**
 
-![image](https://github.com/user-attachments/assets/fd0f335d-9ba5-4789-bd28-5690dab695d0)
+![image](https://github.com/user-attachments/assets/ed7c1ae1-03dc-4b08-8b6f-cfec0e9b6532)
 
 
 The data can be trusted, it is published in a trustworthiness source and it is aligned with the question that was assigned to me. However, all ride ids are unique and due to data privacy prohibiting
@@ -179,11 +178,33 @@ using rider's personally identifiable information, it will not be possible to de
 
 ## Process
 
-The Process step is where the data is processed for analysis:
-- data cleaning
-- data manipulation
+In this step, the two datasets are combined into one dataset, clean it and manipulate it.
 
 ### Data cleaning
+
+Before combining the tow datasets (‘CyclisticTripData_2019_Q4’ and ‘CyclisticTripData_2020_Q1’) into one dataset (‘CyclisticTripData’), the inconsistency in columns names in each dataframe needs to be addressed by renaming the columns to ensure uniformity.
+The columns names are renaming considering the most recent naming convention - CyclisticTripData_2020_Q1.
+
+```
+(CyclisticTripData_2019_Q4 <- rename(CyclisticTripData_2019_Q4
+                   ,ride_id = trip_id
+                   ,started_at = start_time  
+                   ,ended_at = end_time
+                   ,rideable_type = bikeid
+                   ,start_station_id = from_station_id
+                   ,start_station_name = from_station_name
+                   ,end_station_id = to_station_id
+                   ,end_station_name = to_station_name
+                   ,member_casual = usertype))
+```
+Now that the columns names are the same, the datatype for the columns _ride_id_ and _rideable_type_ needs to be uniform for combining the two dataframes.
+
+```
+CyclisticTripData_2019_Q4 <- mutate(CyclisticTripData_2019_Q4, ride_id = as.character(ride_id)
+                                    ,rideable_type = as.character(rideable_type))
+```
+
+
 
 
 ### Data manipulation
