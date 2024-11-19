@@ -107,7 +107,6 @@ This study analyzes and identifies trends from the previous 12 months: November 
 ### Data Preparation
 
 > ⚠️ **Note:** I tried to complete this project using the data from previous 12 months but I've been limited to manage renaming the original data files in Posit’s RStudio and I could only renaiming 6 files - when renaiming 7 files, Posit’s RStudio crashes. So I decided to complete this project focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio does not crashes due to Memory Usage. However, when merging data in the [Process](#process), Posit’s RStudio crashes! So, following the tip from the Case Study Roadmap for the Data Process, I use the ‘Divvy_Trips_2019_Q4.csv’ and ‘Divvy_Trips_2020_Q1.csv’ datasets (October 2019 to March 2020).
-Q1 datasets
 
 The Cyclistic’s historical trip data is available to download in zip files (‘Divvy_Trips_2019_Q2.csv’ and ‘Divvy_Trips_2020_Q1.csv’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘Divvy_Trips_2019_Q2.csv’ and ‘Divvy_Trips_2020_Q1.csv’). This study uses [Posit’s RStudio - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
@@ -210,7 +209,7 @@ CyclisticTripData <- bind_rows(CyclisticTripData_2019_Q4, CyclisticTripData_2020
 
 ![image](https://github.com/user-attachments/assets/9fc2cd5a-65bf-4782-bab3-b25a979eae11)
 
-Then the large dataframe can be verified to check very quickly to get a better data sensitivity.
+Then the large dataframe can be verified to check very quickly uniformities and to get a better data sensitivity.
 
 ```
 colnames(CyclisticTripData)
@@ -222,9 +221,33 @@ tail(CyclisticTripData)
 From looking at the output information, the columns _start_lat_, _start_lng_, _end_lat_ and _end_lng_ can be removed because the data were collected only at ‘CyclisticTripData_2020_Q1’.
 Also, the columns _birthyear_ and _gender_ can be removed because the data were collected only at ‘CyclisticTripData_2019_Q4’.
 
+```
+CyclisticTripData <- CyclisticTripData[,!names(CyclisticTripData) %in% c("birthyear"
+                                                                         ,"gender"
+                                                                         ,"start_lat"
+                                                                         ,"start_lng"
+                                                                         ,"end_lat"
+                                                                         ,"end_lng")]
+```
+
+Typing ```View(CyclisticTripData)``` on the console returns how the _CyclisticTripData_ dataframe looks like.
+
+![image](https://github.com/user-attachments/assets/8380cf75-5405-4d6f-b04d-27968baf03ad)
+
+
+Now, the large dataframe is ready to check that data is clean, free of errors and check if modifying data is needed.
+
+> Note: The large dataframe is expoerted to due to Posit’s RStudio Memory Usage limit on the free version!
+
+```
+write.csv(CyclisticTripData,"CyclisticTripData.csv", row.names = FALSE)
+```
 
 
 ### Data manipulation
+
+
+
 
 <br/>
 
@@ -248,7 +271,8 @@ Also, the columns _birthyear_ and _gender_ can be removed because the data were 
 
 ## What's in this project? 👩‍💻
 
-`README.md`: That's this file, where you can describe your project and how you built it. 
+`README.md`: That's this file, where you can describe your project and how you built it.
+`20241113_DataPreparation_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Data Preparation](#data-preparation) and [Process - Data Cleaning](#data-cleaning).
 
 <p/>
 
