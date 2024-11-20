@@ -77,13 +77,15 @@ riders use Cyclistic bikes differently?_**
 The local directory, folders, sub-folders and file-naming conventions follow the structure below:
 
 ```
-|--YYYYMMDD_CyclisticBikeShare
+|--20241113_CyclisticBikeShare
   |-- 1.OriginalData
   |-- 2.PreparedData
   |-- 3.UploadedData
     |-- !YYYYMMDD
   |-- 4.Analysis
     |-- DataErrors
+      |-- AumaticallyExcludedResults
+      |-- ManuallyExcludedResults
     |-- RStudio Code
     |-- Figures
   |-- 5.Insights
@@ -245,6 +247,36 @@ write.csv(CyclisticTripData,"20241119_CyclisticTripData.csv", row.names = FALSE)
 
 
 ### Data manipulation
+
+> Note: The large dataframe was loaded into R-Studio Desktop (new project and R script) to avoid that RStudio crashes due to Memory Usage.
+
+Next, a closer look at data is teaken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
+
+```
+# find DUPLICATES 'ride_id'
+CyclisticTripData_duplicates <- CyclisticTripData[duplicated(CyclisticTripData$ride_id), ]
+duplicate_counts <- table(CyclisticTripData[duplicated(CyclisticTripData$ride_id), ])
+# find and count MISSING values
+which(is.na(CyclisticTripData))     # find location of missing values
+sum(is.na(CyclisticTripData))       # count total missing values
+colSums(is.na(CyclisticTripData))   # count total missing values in each column
+# remove 'tripduration' column
+CyclisticTripData <- CyclisticTripData[,!names(CyclisticTripData) %in% c("tripduration")]
+# new dataframe that only contains rows that have missing values
+CyclisticTripData_missing <- CyclisticTripData[rowSums(is.na(CyclisticTripData)) > 0,]
+# save the dataframe for recording
+write.csv(CyclisticTripData_missing,"20241120_CyclisticTripData_MissingValues.csv", row.names = FALSE)
+# remove the missing values from the large dataset
+CyclisticTripData <- CyclisticTripData[rowSums(is.na(CyclisticTripData)) == 0, ]
+```
+
+Key findings:
+- There are no _ride_id_ duplicates
+- There are 426888 missing values (426887 in 'tripduration', 1 in 'end_station_id')
+- The 426887 missing values in 'tripduration' are due to this column data collected only at ‘CyclisticTripData_2020_Q1’
+- The column 'tripduration' can be removed. Now the data has 1 missing value
+  ![image](https://github.com/user-attachments/assets/b3b2ab61-180b-47c4-a0dd-ae9c0aa3568a)
+- 
 
 
 
