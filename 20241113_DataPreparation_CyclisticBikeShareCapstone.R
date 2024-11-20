@@ -11,11 +11,9 @@
 install.packages("tidyverse")
 install.packages("dplyr") #column rename, datasets merge   
 install.packages ("lubridate")
-install.packages("ggplot2")
 library(tidyverse)
 library("dplyr")  
 library (lubridate)
-library(ggplot2)
 
 ###PREPARE###    
 # original data files renaming for simplicity and improve readability
