@@ -257,16 +257,12 @@ Next, a closer look at data is teaken to check for duplicates, null values, and 
 CyclisticTripData_duplicates <- CyclisticTripData[duplicated(CyclisticTripData$ride_id), ]
 duplicate_counts <- table(CyclisticTripData[duplicated(CyclisticTripData$ride_id), ])
 # find and count MISSING values
-which(is.na(CyclisticTripData))     # find location of missing values
-sum(is.na(CyclisticTripData))       # count total missing values
-colSums(is.na(CyclisticTripData))   # count total missing values in each column
-# remove 'tripduration' column
+which(is.na(CyclisticTripData))     
+sum(is.na(CyclisticTripData))       
+colSums(is.na(CyclisticTripData))   
 CyclisticTripData <- CyclisticTripData[,!names(CyclisticTripData) %in% c("tripduration")]
-# new dataframe that only contains rows that have missing values
 CyclisticTripData_missing <- CyclisticTripData[rowSums(is.na(CyclisticTripData)) > 0,]
-# save the dataframe for recording
 write.csv(CyclisticTripData_missing,"20241120_CyclisticTripData_MissingValues.csv", row.names = FALSE)
-# remove the missing values from the large dataset
 CyclisticTripData <- CyclisticTripData[rowSums(is.na(CyclisticTripData)) == 0, ]
 ```
 
