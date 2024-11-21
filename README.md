@@ -253,9 +253,10 @@ write.csv(CyclisticTripData,"20241119_CyclisticTripData.csv", row.names = FALSE)
 Next, a closer look at data is teaken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
 
 ```
-# find DUPLICATES 'ride_id'
+# find 'ride_id' DUPLICATES 
 CyclisticTripData_duplicates <- CyclisticTripData[duplicated(CyclisticTripData$ride_id), ]
 duplicate_counts <- table(CyclisticTripData[duplicated(CyclisticTripData$ride_id), ])
+
 # find and count MISSING values
 which(is.na(CyclisticTripData))     
 sum(is.na(CyclisticTripData))       
@@ -264,6 +265,17 @@ CyclisticTripData <- CyclisticTripData[,!names(CyclisticTripData) %in% c("tripdu
 CyclisticTripData_missing <- CyclisticTripData[rowSums(is.na(CyclisticTripData)) > 0,]
 write.csv(CyclisticTripData_missing,"20241120_CyclisticTripData_MissingValues.csv", row.names = FALSE)
 CyclisticTripData <- CyclisticTripData[rowSums(is.na(CyclisticTripData)) == 0, ]
+
+# ensuring consistency on data 'member_casual' column
+unique(CyclisticTripData$member_casual)
+CyclisticTripData$member_casual_copy = CyclisticTripData$member_casual
+CyclisticTripData <- CyclisticTripData %>%
+  mutate(member_casual = recode(member_casual, 'Subscriber' = 'member', 'Customer' = 'casual' ))
+CyclisticTripData <- subset( CyclisticTripData, select = -member_casual_copy )
+
+# check for consistency on number of characters across columns
+summarise_if(CyclisticTripData, is.character, funs(max(nchar(.), na.rm=T)))
+summarise_if(CyclisticTripData, is.character, funs(min(nchar(.), na.rm=T)))
 ```
 
 Key findings:
@@ -272,7 +284,19 @@ Key findings:
 - The 426887 missing values in 'tripduration' are due to this column data collected only at ‘CyclisticTripData_2020_Q1’
 - The column 'tripduration' can be removed. Now the data has 1 missing value
   ![image](https://github.com/user-attachments/assets/b3b2ab61-180b-47c4-a0dd-ae9c0aa3568a)
-- 
+- There are "Subscriber","Customer","member" and "casual" at _member_casual_ column. This fact is due to the different member type values between ‘CyclisticTripData_2019_Q4’ and ‘CyclisticTripData_2020_Q1’. The information that we have is that: Customers are identified as casual riders ("causal") and Cyclistic members ("members"). So, to ensure consistency on data: "Subscriber" is considered a Cyclistic member and "Customer" is the same as casual rider.
+- There are no consistency on values of column _rideable_type_ due to the same fact presented in the previous point, values change between ‘CyclisticTripData_2019_Q4’ and ‘CyclisticTripData_2020_Q1’. However, with the information available and without further information we can't address this data inconsistency. So, for the purposes of this study, it was decided to remove this column.
+  ```
+  CyclisticTripData <- CyclisticTripData[,!names(CyclisticTripData) %in% c("rideable_type")]
+  ```
+- There are consistency on characters length on columns _started_at_, _ended_at_ and _member_casual_
+  ![image](https://github.com/user-attachments/assets/5be829ee-05ad-4e74-b1b8-bcb61049fd97)
+  ![image](https://github.com/user-attachments/assets/5630c605-5718-40ae-bcc3-acafc9258e1b)
+
+  
+Now, the data are ready to the transform and calculation steps to know the ride length and day of week.
+
+The columns _started_at_ and _ended_at_ have the start and end time in the format YYYY-MM-DD hh:mm:ss. 
 
 
 
