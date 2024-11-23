@@ -112,7 +112,7 @@ This study analyzes and identifies trends from the previous 12 months: November 
 
 The Cyclistic’s historical trip data is available to download in zip files (‘Divvy_Trips_2019_Q2.csv’ and ‘Divvy_Trips_2020_Q1.csv’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘Divvy_Trips_2019_Q2.csv’ and ‘Divvy_Trips_2020_Q1.csv’). This study uses [Posit’s RStudio - free version](https://posit.co/download/rstudio-desktop/) for the analysis because it is a powerful tool for performing statistical analyses and data visualizations.
 
-The original data files, naming convention of Divvy_Trips_YYYY_(Q1/Q4), were loaded into R-Studio Desktop and renamed for simplicity and improve readability.
+The original data files, naming convention of Divvy_Trips_YYYY_(Q1/Q4), were loaded into Posit’s RStudio and renamed for simplicity and improve readability.
 
 
 
@@ -248,7 +248,7 @@ write.csv(CyclisticTripData,"20241119_CyclisticTripData.csv", row.names = FALSE)
 
 ### Data manipulation
 
-> Note: The large dataframe was loaded into R-Studio Desktop (new project and R script) to avoid that RStudio crashes due to Memory Usage.
+> Note: The large dataframe was loaded into Posit’s RStudio (new project and R script) to avoid that RStudio crashes due to Memory Usage.
 
 Next, a closer look at data is teaken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
 
