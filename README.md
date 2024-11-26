@@ -296,7 +296,12 @@ Key findings:
   
 Now, the data are ready to the transform and calculation steps to know the ride length and day of week.
 
-The columns _started_at_ and _ended_at_ have the start and end time in the format YYYY-MM-DD hh:mm:ss. 
+New columns _ride_length_ and _day_of_week_ are created to calculate (1) the length of each ride by subtracting the column _started_at_ from the column _ended_at_ and (2) the day of the week that each ride started, respectivelly. Both columns _started_at_ and _ended_at_ have the start and end time in the format YYYY-MM-DD hh:mm:ss.
+
+```
+CyclisticTripData$ride_length <- as_hms(difftime(CyclisticTripData$ended_at, CyclisticTripData$started_at))
+CyclisticTripData$day_of_week <- weekdays(as.Date(CyclisticTripData$started_at))
+```
 
 
 
