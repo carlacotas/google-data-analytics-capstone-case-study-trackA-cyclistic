@@ -303,7 +303,36 @@ CyclisticTripData$ride_length <- as_hms(difftime(CyclisticTripData$ended_at, Cyc
 CyclisticTripData$day_of_week <- weekdays(as.Date(CyclisticTripData$started_at))
 ```
 
+Now, a closer look at data in the new columns is teaken to check for consistency and meaning on values.
 
+```
+# check the values on column 'day_of_week' ensuring consistency
+unique(CyclisticTripData$day_of_week)
+
+# check for 'ride_length' negative or zero and remove them
+as_hms(min(CyclisticTripData$ride_length, na.rm = TRUE))
+as_hms(max(CyclisticTripData$ride_length, na.rm = TRUE))
+CyclisticTripData_ridelength_zeronegative <- CyclisticTripData[CyclisticTripData$ride_length <= 00:00:00,]
+write.csv(CyclisticTripData_ridelength_zeronegative,"20241126_CyclisticTripData_ridelength_InconsistencyValues.csv", row.names = FALSE)
+CyclisticTripData <- CyclisticTripData[CyclisticTripData$ride_length > 00:00:00, ]
+
+```
+
+Key findings:
+- There are consistency on the the day of the week that each ride started, with unique values corresponding to the names of the days of the week
+![image](https://github.com/user-attachments/assets/f5503515-ce32-4c2e-a39f-a46099a82a3e)  
+- There are at least one negative value on ride length. And, at least one value that is higher than one day (circa 109 days) and less than the total number of days corresponding to this analsysis
+![image](https://github.com/user-attachments/assets/475a6d3a-c9c6-4bc1-9c91-4dec352d2eeb)
+- There are 222 observations with negative ride length or equal to 00:00:00
+- At the end, the data ready for analysis has 1130718 observations
+
+
+
+<!--
+A fazer:
+- analise considerando a lat e long das estacoes de partida e chegada para perceber a importancia da distancia entre as duas estacoes
+ir aos dados de 2020_Q1 e tirar os valores de lat e long para uma tabela, depois acrescentar novas colunas aos dados
+-->
 
 
 <br/>
@@ -321,7 +350,6 @@ CyclisticTripData$day_of_week <- weekdays(as.Date(CyclisticTripData$started_at))
 <br/>
 
 ## Act
-
 
 
 <br/>
