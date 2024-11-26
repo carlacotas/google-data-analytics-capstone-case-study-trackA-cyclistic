@@ -326,7 +326,7 @@ Key findings:
 - There are 222 observations with negative ride length or equal to 00:00:00
 - At the end, the data ready for analysis has 1130718 observations
 
-
+> Note: For the purposes of this study and to learn objectives, the data is already ready for the Analyze step; however, an extra manipulation of data will be done considering that we can complete the data working with the ‘CyclisticTripData_2020_Q1’ data to get the stations latitude and longitude and add a column with ride distance. 
 
 <!--
 A fazer:
@@ -361,6 +361,10 @@ ir aos dados de 2020_Q1 e tirar os valores de lat e long para uma tabela, depois
 <p/>
   
 `20241113_DataPreparation_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Data Preparation](#data-preparation) and [Process - Data Cleaning](#data-cleaning).
+
+<p/>
+
+`20241120_DataManipulation_CyclisticBikeShareCapstone`: That's R script with the code for the steps [Process - Data Manipulation](#data-manipulation).
 
 <p/>
 
