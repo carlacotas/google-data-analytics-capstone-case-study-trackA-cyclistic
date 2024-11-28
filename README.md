@@ -250,7 +250,7 @@ write.csv(CyclisticTripData,"20241119_CyclisticTripData.csv", row.names = FALSE)
 
 > Note: The large dataframe was loaded into Posit’s RStudio (new project and R script) to avoid that RStudio crashes due to Memory Usage.
 
-Next, a closer look at data is teaken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
+Next, a closer look at data is taken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
 
 ```
 # find 'ride_id' DUPLICATES 
@@ -303,7 +303,7 @@ CyclisticTripData$ride_length <- as_hms(difftime(CyclisticTripData$ended_at, Cyc
 CyclisticTripData$day_of_week <- weekdays(as.Date(CyclisticTripData$started_at))
 ```
 
-Now, a closer look at data in the new columns is teaken to check for consistency and meaning on values.
+Now, a closer look at data in the new columns is taken to check for consistency and meaning on values.
 
 ```
 # check the values on column 'day_of_week' ensuring consistency
@@ -326,9 +326,9 @@ Key findings:
 - There are 222 observations with negative ride length or equal to 00:00:00
 - At the end, the data ready for analysis has 1130718 observations
 
-> Note: For the purposes of this study and to learn objectives, the data is already ready for the Analyze step; however, the original data ‘CyclisticTripData_2020_Q1’ includes columns with latitude and longitude for the start and end stations. An additional step on data manipulation is to check for consistency on the start and end stations from the large dataset and the first quarter of 2020. 
+> Note: For the purposes of this study and to learn objectives, the data is already ready for the Analyze step; however, the original data ‘CyclisticTripData_2020_Q1’ includes columns with latitude and longitude for the start and end stations. An additional step on data manipulation is to calculate the ride length if possible with the start and end stations information (latitude and longitude) from the first quarter of 2020 to complete the 'CyclisticTripData' dataframe. 
 
-The large dataframe and the original data from the first quarter of 2020 were loaded into Posit’s RStudio (new project and R script). And, a closer look at data is teaken to check for consistency on the stations start and end names.
+The large dataframe and the original data from the first quarter of 2020 were loaded into Posit’s RStudio (new project and R script). And, a closer look at data is taken to check for consistency on the stations start and end names between the two dataframes.
 
 ```
 ## renaming files for simplicity and improve readability
