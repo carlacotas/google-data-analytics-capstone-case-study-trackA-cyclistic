@@ -72,6 +72,9 @@ write.csv(CyclisticTripData_ridelength_zeronegative,"20241126_CyclisticTripData_
 # remove the rows that have zero or negative ride length values
 CyclisticTripData <- CyclisticTripData[CyclisticTripData$ride_length > 00:00:00, ]
 
+# check for the possibility of using data from the first quarter of 2020 to add ride distance column
+unique(CyclisticTripData$start_station_name)
+unique(CyclisticTripData$end_station_name)
 
 #exporting the 'CyclisticTripData' to  'CyclisticTripData.csv'
 write.csv(CyclisticTripData,"20241126_CyclisticTripData.csv", row.names = FALSE) 
