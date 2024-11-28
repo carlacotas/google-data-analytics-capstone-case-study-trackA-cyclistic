@@ -364,7 +364,7 @@ Key findings:
 fisrt quarter of 2020 - unique start station names: 607, unique end station names: 603
 large dataframe - unique start station names: 613, unique end station names: 611
 - Without further information about all the stations latitude and longitude we cannot guarantee consistency on ride length calculations for all observations
-- At the end, the data ready for analysis has 1130718 observations and 10 features/observations  
+- At the end, the data ready for analysis has 1130718 observations and 10 features 
 
 <br/>
 
