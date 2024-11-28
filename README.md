@@ -326,14 +326,45 @@ Key findings:
 - There are 222 observations with negative ride length or equal to 00:00:00
 - At the end, the data ready for analysis has 1130718 observations
 
-> Note: For the purposes of this study and to learn objectives, the data is already ready for the Analyze step; however, an extra manipulation of data will be done considering that we can complete the data working with the ‘CyclisticTripData_2020_Q1’ data to get the stations latitude and longitude and add a column with ride distance. 
+> Note: For the purposes of this study and to learn objectives, the data is already ready for the Analyze step; however, the original data ‘CyclisticTripData_2020_Q1’ includes columns with latitude and longitude for the start and end stations. An additional step on data manipulation is to check for consistency on the start and end stations from the large dataset and the first quarter of 2020. 
 
-<!--
-A fazer:
-- analise considerando a lat e long das estacoes de partida e chegada para perceber a importancia da distancia entre as duas estacoes
-ir aos dados de 2020_Q1 e tirar os valores de lat e long para uma tabela, depois acrescentar novas colunas aos dados
--->
+The large dataframe and the original data from the first quarter of 2020 were loaded into Posit’s RStudio (new project and R script). And, a closer look at data is teaken to check for consistency on the stations start and end names.
 
+```
+## renaming files for simplicity and improve readability
+CyclisticTripData <- read.csv("20241126_CyclisticTripData.csv")
+CyclisticTripData_2020_Q1 <- read.csv("Divvy_Trips_2020_Q1.csv")
+
+## get the start and end - latitude and longitude - for each station 
+CyclisticTripData_2020_Q1 <- CyclisticTripData_2020_Q1[,!names(CyclisticTripData_2020_Q1) 
+                                                       %in% c("rideable_type"
+                                                              ,"member_casual"
+                                                              ,"started_at"
+                                                              ,"ended_at")]
+
+CyclisticTripData <- CyclisticTripData[,!names(CyclisticTripData) 
+                                                       %in% c("started_at"
+                                                              ,"ended_at"
+                                                              ,"member_casual"
+                                                              ,"ride_length"
+                                                              ,"day_of_week")]
+
+
+unique(CyclisticTripData_2020_Q1$start_station_name)
+unique(CyclisticTripData_2020_Q1$end_station_name)
+CyclisticTripData_2020_Q1_start <- CyclisticTripData_2020_Q1 %>% distinct(start_station_name, .keep_all=TRUE)
+CyclisticTripData_2020_Q1_end <- CyclisticTripData_2020_Q1 %>% distinct(end_station_name, .keep_all=TRUE)
+
+unique(CyclisticTripData$start_station_name)
+unique(CyclisticTripData$end_station_name)
+```
+
+Key findings:
+- There are no consistency on the start and end station names on both dataframes:
+fisrt quarter of 2020 - unique start station names: 607, unique end station names: 603
+large dataframe - unique start station names: 613, unique end station names: 611
+- Without further information about all the stations latitude and longitude we cannot guarantee consistency on ride length calculations for all observations
+- At the end, the data ready for analysis has 1130718 observations and 10 features/observations  
 
 <br/>
 
@@ -365,6 +396,12 @@ ir aos dados de 2020_Q1 e tirar os valores de lat e long para uma tabela, depois
 <p/>
 
 `20241120_DataManipulation_CyclisticBikeShareCapstone`: That's R script with the code for the steps [Process - Data Manipulation](#data-manipulation).
+
+<p/>
+
+<p/>
+
+`20241128_ExtraDataManipulation_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Process - Data Manipulation](#data-manipulation) with additional step that intended to calculate ride distance.
 
 <p/>
 
