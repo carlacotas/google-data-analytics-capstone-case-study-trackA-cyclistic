@@ -397,10 +397,19 @@ The data includes ride id, started and ended time, start and end station - name 
 To run the analysis we must have ride length on the proper format for descriptive analysis. Also, an additional format transform will be done, to guarantee that start and end station - id has the correct format.
 
 ```
-
+CyclisticTripData <- mutate(CyclisticTripData, start_station_id = as.character(start_station_id)
+                                    ,end_station_id = as.character(end_station_id)
+                                    ,ride_length = as.numeric(hms(ride_length)))
 
 ```
 
+The data is now properly formatted!
+
+![image](https://github.com/user-attachments/assets/7562c3ce-5559-4fe7-a769-baaa50a49ece)
+
+![image](https://github.com/user-attachments/assets/14864a20-2210-4e45-9e57-9eca3b906f96)
+
+![image](https://github.com/user-attachments/assets/9fd8946c-aa3f-4279-900a-ff6f3b67bfd0)
 
 
 ### Descriptive analysis
