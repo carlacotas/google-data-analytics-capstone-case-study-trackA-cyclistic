@@ -81,7 +81,7 @@ The local directory, folders, sub-folders and file-naming conventions follow the
   |-- 1.OriginalData
   |-- 2.PreparedData
   |-- 3.UploadedData
-    |-- !YYYYMMDD
+    |-- 20141202
   |-- 4.Analysis
     |-- DataErrors
       |-- AumaticallyExcludedResults
@@ -369,6 +369,42 @@ large dataframe - unique start station names: 613, unique end station names: 611
 <br/>
 
 ## Analyze
+
+After the data is prepared, processed, and stored appropriately, it's ready for analyze it. 
+The main objective in this step is to find trends or relationships in the data. Also, we can discover some surprises in the data. And, find how will these insights help answer the question assigned to me.
+This step includes conducting descriptive analysis and identifying trends and relationships.
+
+Following the Case Study Roadmap for the Data Analyze, I started this step by looking the following questions:
+- How should you organize your data to perform analysis on it?
+- Has your data been properly formatted?
+- What surprises did you discover in the data?
+
+```
+glimpse (CyclisticTripData)
+str (CyclisticTripData)
+summary(CyclisticTripData)
+```
+
+The data includes ride id, started and ended time, start and end station - name and id, member type, ride length and day of week.
+
+![image](https://github.com/user-attachments/assets/76c138fe-0e6e-4dbf-af77-0aa459d19b01)
+
+![image](https://github.com/user-attachments/assets/5d15d38d-1bef-4d43-a17b-beb76e550f52)
+
+![image](https://github.com/user-attachments/assets/0f75f245-78f7-4739-8324-b2c89d6a79f9)
+
+
+To run the analysis we must have ride length on the proper format for descriptive analysis. Also, an additional format transform will be done, to guarantee that start and end station - id has the correct format.
+
+```
+
+
+```
+
+
+
+### Descriptive analysis
+
 
 
 
