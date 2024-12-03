@@ -402,18 +402,79 @@ CyclisticTripData <- mutate(CyclisticTripData, start_station_id = as.character(s
                                     ,ride_length = as.numeric(hms(ride_length)))
 
 ```
-
-The data is now properly formatted!
-
 ![image](https://github.com/user-attachments/assets/7562c3ce-5559-4fe7-a769-baaa50a49ece)
 
 ![image](https://github.com/user-attachments/assets/14864a20-2210-4e45-9e57-9eca3b906f96)
 
 ![image](https://github.com/user-attachments/assets/9fd8946c-aa3f-4279-900a-ff6f3b67bfd0)
 
+The data is now properly formatted!
 
 ### Descriptive analysis
 
+Important metrics such as mean and maximum for the ride length are calculated for each member type.
+
+```
+CyclisticTripData_RideLengthMetrics <- CyclisticTripData %>% 
+  group_by(member_casual) %>%
+  summarise(mean_ride_length = round(mean(ride_length), 0)
+            , median_ride_length = median(ride_length)
+            , max_ride_length = max(ride_length))
+```
+![image](https://github.com/user-attachments/assets/207f43a9-9ed5-487f-91ff-805547a3016f)
+
+
+
+Next, the mode of day of week is also calculated.
+To calculate the mode, R does not provide a built-in funciton to calculate it. The built-in function mode() in R gives the variable type instead of the most frequently occurring value. Thus, a [User defined-function](https://www.scaler.com/topics/mean-median-mode-in-r/) was used to calculate the mode.
+
+
+```
+calculate_mode <- function(data) {
+  uniq_vals <- unique(data)
+  uniq_counts <- table(data)
+  mode_value <- uniq_vals[which.max(uniq_counts)]
+  return(mode_value)
+}
+CyclisticTripData_ModeDayOfWeek <- CyclisticTripData %>% 
+  group_by(member_casual) %>%
+  summarise(mode_day_of_week = calculate_mode(day_of_week))
+```
+![image](https://github.com/user-attachments/assets/4ad8ecdd-f7ff-4faa-a3ef-fc9f69bec0b4)
+
+
+The mean ride length by day of week can be also calculate.
+
+```
+CyclisticTripData_Mean_UserDayOfWeek <- CyclisticTripData %>% 
+  group_by(member_casual, day_of_week) %>%
+  summarise(mean_ride_length = round(mean(ride_length), 0), .groups = 'drop')
+```
+![image](https://github.com/user-attachments/assets/b6c5a1f7-4d9c-4297-83ee-df304a86eb8f)
+
+
+And, the total number of rides for each member type by day of week.
+
+```
+CyclisticTripData_Rides_UserDayOfWeek <- CyclisticTripData %>% 
+  group_by(member_casual, day_of_week) %>%
+  summarise(number_rides = n(), .groups = 'drop')
+```
+![image](https://github.com/user-attachments/assets/0e3aa10d-57a1-4978-a0e5-f4b6e559c1fe)
+
+
+
+Key findings:
+- Casual members ride more frequently at Friday, for longer ride length
+- Members ride more frequently on Sunday, for shorter ride length
+- Members ride a bike with higher mean ride length on weekends
+- The lower mean ride length for casual members is on Monday
+- There are more rides of casual members on weekends than during week days. At the opposite, there are more rides of members during week days tahn weekends
+
+Important data insights were already obtained and can be translated visually to present data more clearly.
+
+
+### Data visualization
 
 
 
