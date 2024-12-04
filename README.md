@@ -549,6 +549,12 @@ In this step, after the analysis is performed and some insights are obtained, re
 
 <p/>
 
+<p/>
+
+`20241202_DataAnalyze_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Analyze](#analyze).
+
+<p/>
+
 
 <br/>
 
