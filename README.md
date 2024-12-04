@@ -294,7 +294,7 @@ Key findings:
   ![image](https://github.com/user-attachments/assets/5630c605-5718-40ae-bcc3-acafc9258e1b)
 
   
-Now, the data are ready to the transform and calculation steps to know the ride length and day of week.
+Now, the data is ready to the transform and calculation steps to know the ride length and day of week.
 
 New columns _ride_length_ and _day_of_week_ are created to calculate (1) the length of each ride by subtracting the column _started_at_ from the column _ended_at_ and (2) the day of the week that each ride started, respectivelly. Both columns _started_at_ and _ended_at_ have the start and end time in the format YYYY-MM-DD hh:mm:ss.
 
@@ -420,8 +420,14 @@ CyclisticTripData_RideLengthMetrics <- CyclisticTripData %>%
   summarise(mean_ride_length = round(mean(ride_length), 0)
             , median_ride_length = median(ride_length)
             , max_ride_length = max(ride_length))
+
+CyclisticTripData_RideLengthMetrics <- mutate(CyclisticTripData_RideLengthMetrics
+                                           , mean_ride_length = hms(mean_ride_length)
+                                           , median_ride_length = hms(median_ride_length)
+                                           , max_ride_length = hms(max_ride_length))
 ```
 ![image](https://github.com/user-attachments/assets/207f43a9-9ed5-487f-91ff-805547a3016f)
+![image](https://github.com/user-attachments/assets/c7456d36-0a42-48de-938f-e4ba39d05268)
 
 
 
@@ -448,39 +454,71 @@ The mean ride length by day of week can be also calculate.
 ```
 CyclisticTripData_Mean_UserDayOfWeek <- CyclisticTripData %>% 
   group_by(member_casual, day_of_week) %>%
-  summarise(mean_ride_length = round(mean(ride_length), 0), .groups = 'drop')
+  summarise(mean_ride_length = round(mean(ride_length), 0), .groups = 'drop') %>%
+  mutate(mean_ride_length = hms(mean_ride_length))
+
 ```
 ![image](https://github.com/user-attachments/assets/b6c5a1f7-4d9c-4297-83ee-df304a86eb8f)
+![image](https://github.com/user-attachments/assets/7e5d71a7-2954-48ce-9690-c9b7553cf91f)
 
 
-And, the total number of rides for each member type by day of week.
+
+And, the total number of rides for each member type by day of week can be also calculated.
 
 ```
 CyclisticTripData_Rides_UserDayOfWeek <- CyclisticTripData %>% 
   group_by(member_casual, day_of_week) %>%
   summarise(number_rides = n(), .groups = 'drop')
+
+CyclisticTripData_TotalRides <- CyclisticTripData %>% 
+  group_by(member_casual) %>% 
+  summarise(ride_count = n())
+
 ```
 ![image](https://github.com/user-attachments/assets/0e3aa10d-57a1-4978-a0e5-f4b6e559c1fe)
+
+Also, the total number of rides for each member type can be calculated.
+
+```
+CyclisticTripData_TotalRides <- CyclisticTripData %>% 
+  group_by(member_casual) %>% 
+  summarise(ride_count = n()) %>%
+  mutate(percentage_rides = round(ride_count/sum(ride_count)*100,2))
+```
+![image](https://github.com/user-attachments/assets/e9d0c616-9a9a-44f8-8a0b-952269902472)
+
+And, for each member type per day of week.
+
+```
+CyclisticTripData_Rides_UserDayOfWeek <- CyclisticTripData %>% 
+  group_by(member_casual, day_of_week) %>%
+  summarise(number_rides = n(), .groups = 'drop') %>%
+  mutate(percentage_number_rides = round(number_rides/sum(number_rides) * 100,2))
+```
+![image](https://github.com/user-attachments/assets/61e6e49c-2df5-4942-8f97-90b5c023f8e4)
 
 
 
 Key findings:
 - Casual members ride more frequently at Friday, for longer ride length
 - Members ride more frequently on Sunday, for shorter ride length
-- Members ride a bike with higher mean ride length on weekends
+- Members ride higher mean ride length on weekends
 - The lower mean ride length for casual members is on Monday
-- There are more rides of casual members on weekends than during week days. At the opposite, there are more rides of members during week days tahn weekends
+- There are more rides of casual members on weekends than during week days. At the opposite, there are more rides of members during week days than weekends
+- Only circa of 14% total rides are casual members
+- Rides of members during week days range between circa 12 to 16% of the total number of rides. While for the casual members is always less than circa 2% of the total number of rides
 
 Important data insights were already obtained and can be translated visually to present data more clearly.
-
-
-### Data visualization
-
-
 
 <br/>
 
 ## Share
+
+In this step, after the analysis is performed and some insights are obtained, relevant visualizations are created to share findings.
+
+- 
+
+
 
 
 
