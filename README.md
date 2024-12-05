@@ -539,10 +539,22 @@ ggplot(CyclisticTripData_Rides_UserDayOfWeek,aes(x = factor(day_of_week,
 - mean ride length for member type by day of week
 
 ```
+ggplot(CyclisticTripData_Mean_UserDayOfWeek,aes(x = factor(day_of_week,
+                                                            levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
+                                                 , y = mean_ride_length, fill = member_casual)) +
+  labs(title = "Mean ride length by day of week",
+       x = "Day of week",
+       y = "Mean ride length [seconds]") +
+  theme(plot.title = element_text(face="bold")) +
+  theme(axis.title.x = element_text(face="bold")) +
+  theme(axis.title.y = element_text(face="bold")) +
+  labs(fill = "Member type") +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values=c("#00ffff", 
+                             "red"))
 
 ```
-
-
+![20241205_MeanRideLengthPerDayOfWeek](https://github.com/user-attachments/assets/3981ebfa-e51f-4ec2-b5ad-7c9770a99fc0)
 
 
 <br/>
