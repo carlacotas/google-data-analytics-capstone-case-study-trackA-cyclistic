@@ -590,6 +590,13 @@ ggplot(CyclisticTripData_Mean_UserDayOfWeek,aes(x = factor(day_of_week,
 
 <p/>
 
+<p/>
+
+`20241205_DataShare_CyclisticBikeShareCapstone.R`: That's R script with the code for the steps [Share](#share).
+
+<p/>
+
+
 
 <br/>
 
