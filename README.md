@@ -463,19 +463,15 @@ CyclisticTripData_Mean_UserDayOfWeek <- CyclisticTripData %>%
 
 
 
-And, the total number of rides for each member type by day of week can be also calculated.
+And, the total number of rides for each member type by day of week can be calculated.
 
 ```
 CyclisticTripData_Rides_UserDayOfWeek <- CyclisticTripData %>% 
   group_by(member_casual, day_of_week) %>%
-  summarise(number_rides = n(), .groups = 'drop')
-
-CyclisticTripData_TotalRides <- CyclisticTripData %>% 
-  group_by(member_casual) %>% 
-  summarise(ride_count = n())
-
+  summarise(number_rides = n(), .groups = 'drop') %>%
+  mutate(percentage_number_rides = round(number_rides/sum(number_rides) * 100,2))
 ```
-![image](https://github.com/user-attachments/assets/0e3aa10d-57a1-4978-a0e5-f4b6e559c1fe)
+![image](https://github.com/user-attachments/assets/61e6e49c-2df5-4942-8f97-90b5c023f8e4)
 
 Also, the total number of rides for each member type can be calculated.
 
@@ -486,17 +482,6 @@ CyclisticTripData_TotalRides <- CyclisticTripData %>%
   mutate(percentage_rides = round(ride_count/sum(ride_count)*100,2))
 ```
 ![image](https://github.com/user-attachments/assets/e9d0c616-9a9a-44f8-8a0b-952269902472)
-
-And, for each member type per day of week.
-
-```
-CyclisticTripData_Rides_UserDayOfWeek <- CyclisticTripData %>% 
-  group_by(member_casual, day_of_week) %>%
-  summarise(number_rides = n(), .groups = 'drop') %>%
-  mutate(percentage_number_rides = round(number_rides/sum(number_rides) * 100,2))
-```
-![image](https://github.com/user-attachments/assets/61e6e49c-2df5-4942-8f97-90b5c023f8e4)
-
 
 
 Key findings:
@@ -516,8 +501,46 @@ Important data insights were already obtained and can be translated visually to 
 
 In this step, after the analysis is performed and some insights are obtained, relevant visualizations are created to share findings.
 
-- 
+- % number of rides by member type
 
+```
+slices <- CyclisticTripData_TotalRides$percentage_rides 
+lbls <- c("Casual", "Member")
+pct <- CyclisticTripData_TotalRides$percentage_rides
+lbls <- paste(lbls, pct)
+lbls <- paste(lbls,"%",sep="")
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Percentage of Total Rides")
+```
+
+![20241205_PercentageTotalRides](https://github.com/user-attachments/assets/ffec7a8e-011b-45fb-b159-d41ab85b10fd)
+
+
+- number of rides for member type by day_of_week
+
+```
+ggplot(CyclisticTripData_Rides_UserDayOfWeek,aes(x = factor(day_of_week,
+                                                 levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
+                                                 , y = number_rides, fill = member_casual)) +
+  labs(title = "Total number of rides by day of week",
+       x = "Day of week",
+       y = "Total number of rides") +
+  theme(plot.title = element_text(face="bold")) +
+  theme(axis.title.x = element_text(face="bold")) +
+  theme(axis.title.y = element_text(face="bold")) +
+  labs(fill = "Member type") +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values=c("#00ffff", 
+                             "red"))
+```
+![20241205_TotalNumberOfRidesPerdayOfWeek](https://github.com/user-attachments/assets/869f39a5-92d2-4699-8333-249966bae982)
+
+
+- mean ride length for member type by day of week
+
+```
+
+```
 
 
 
