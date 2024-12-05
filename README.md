@@ -485,13 +485,10 @@ CyclisticTripData_TotalRides <- CyclisticTripData %>%
 
 
 Key findings:
-- Casual members ride more frequently at Friday, for longer ride length
-- Members ride more frequently on Sunday, for shorter ride length
-- Higher mean ride length values for members are on weekends
-- The lower mean ride length for casual members is on Monday
-- There are more rides of casual members on weekends than during week days. At the opposite, there are more rides of members during week days than weekends
 - Only circa of 14% total rides are casual members
+- There are more rides of casual members on weekends than during week days. At the opposite, there are more rides of members during week days than weekends
 - Rides of members during week days range between circa 12 to 16% of the total number of rides. While for the casual members is always less than circa 2% of the total number of rides
+- During weekends, members ride for longer lengths (higher mean ride length). Monday is the day with lower mean ride length for casual members
 
 Important data insights were already obtained and can be translated visually to present data more clearly.
 
@@ -560,6 +557,8 @@ ggplot(CyclisticTripData_Mean_UserDayOfWeek,aes(x = factor(day_of_week,
 <br/>
 
 ## Act
+
+
 
 
 <br/>
