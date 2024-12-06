@@ -432,8 +432,6 @@ CyclisticTripData_RideLengthMetrics <- mutate(CyclisticTripData_RideLengthMetric
 
 
 Next, the mode of day of week is also calculated.
-To calculate the mode, R does not provide a built-in funciton to calculate it. The built-in function mode() in R gives the variable type instead of the most frequently occurring value. Thus, a [User defined-function](https://www.scaler.com/topics/mean-median-mode-in-r/) was used to calculate the mode.
-
 
 ```
 CyclisticTripData_ModeDayOfWeek <- CyclisticTripData %>% 
@@ -483,6 +481,7 @@ Key findings:
 - Only circa of 14% total rides are casual members
 - There are more rides of casual members on weekends than during week days. At the opposite, there are more rides of members during week days than weekends
 - Rides of members during week days range between circa 12 to 16% of the total number of rides. While for the casual members is always less than circa 2% of the total number of rides
+- Casual members ride more frequently on Sunday. And, members ride more frequently on Tuesday
 - During weekends, members ride for longer lengths (higher mean ride length). Monday is the day with lower mean ride length for casual members
 
 Important data insights were already obtained and can be translated visually to present data more clearly.
@@ -549,11 +548,25 @@ ggplot(CyclisticTripData_Mean_UserDayOfWeek,aes(x = factor(day_of_week,
 ![20241205_MeanRideLengthPerDayOfWeek](https://github.com/user-attachments/assets/3981ebfa-e51f-4ec2-b5ad-7c9770a99fc0)
 
 
+Now that visualizations are created, deliverables can be prepared.
+
 <br/>
 
 ## Act
 
+In this final step, based on my analysis and findings, the deliverables Morena asked me to create, are prepared and presented.
 
+
+The question assigned to me: **_How do annual members and casual riders use Cyclistic bikes differently?_**
+
+From this study:
+- Casual members use Cyclistic bikes for longer ride length than annual members
+- Casual members ride more during weekends and more frequently on Sunday
+
+
+Based on my analysis, I would recommend the following to increase converting casual riders into annual members:
+- It can be offered a special 
+- Casual mem are most active on weekends and during the summer and spring, thus they may be offered seasonal or weekend-only memberships.
 
 
 <br/>
