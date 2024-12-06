@@ -565,9 +565,17 @@ From this study:
 
 
 Based on my analysis, I would recommend the following to increase converting casual riders into annual members:
-- It can be offered a special 
-- Casual mem are most active on weekends and during the summer and spring, thus they may be offered seasonal or weekend-only memberships.
+- It can be created a new offer with benefits during weekends and long rides
+- Design marketing campaigns and fun activities to create engagement, strategic activities near bike stations can reach out more potential members from Saturday to Tuesday
+- It can be created a special discount for annual members who refer Cyclistic to friends (that are casual members) that become annual members    
 
+Also, further analysis can be done:
+- additional data about the Cyclistic stations location can be used to calculate the ride distances
+- the data already have features that allow to obtain the day and month, and further analysis can be conducted to explore findings per month, day and hour 
+- additional data about the bike type can be used to get relevant information about members preference
+
+
+A document, PowerPoint presentation, was prepared to communicate the data insights to Lily Moreno (Director of Marketing).
 
 <br/>
 
