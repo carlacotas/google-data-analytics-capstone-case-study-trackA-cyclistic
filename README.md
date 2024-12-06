@@ -436,17 +436,12 @@ To calculate the mode, R does not provide a built-in funciton to calculate it. T
 
 
 ```
-calculate_mode <- function(data) {
-  uniq_vals <- unique(data)
-  uniq_counts <- table(data)
-  mode_value <- uniq_vals[which.max(uniq_counts)]
-  return(mode_value)
-}
 CyclisticTripData_ModeDayOfWeek <- CyclisticTripData %>% 
   group_by(member_casual) %>%
-  summarise(mode_day_of_week = calculate_mode(day_of_week))
+  summarise(mode_day_of_week = Mode(day_of_week))
 ```
-![image](https://github.com/user-attachments/assets/4ad8ecdd-f7ff-4faa-a3ef-fc9f69bec0b4)
+![image](https://github.com/user-attachments/assets/c108358f-eb8e-4acd-bcce-bf2507c48c3b)
+
 
 
 The mean ride length by day of week can be also calculate.
