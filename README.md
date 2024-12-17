@@ -611,6 +611,11 @@ A document, PowerPoint presentation, was prepared to communicate the data insigh
 
 <p/>
 
+<p/>
+
+`20241206_CyclisticCaseStudy_Question1_CarlaCotas.pdf`: That's powerpoint presentation in pdf format.
+
+<p/>
 
 
 <br/>
