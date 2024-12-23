@@ -40,7 +40,7 @@ Cyclistic’s finance analysts have concluded that annual members are much more 
 
 - **Cyclistic executive team:** The notoriously detail-oriented executive team.
 
-- **Lily Moreno:** The director of marketing and the manager of my team. Moreno is responsible for the development of campaigns and initiatives to promote the bike-share program. These may include email, social media, and other channels. He believes the company’s future success depends on maximizing the number of annual memberships.
+- **Lily Moreno:** The director of marketing and the manager of my team. Moreno is responsible for the development of campaigns and initiatives to promote the bike-share program. These may include email, social media, and other channels. She believes the company’s future success depends on maximizing the number of annual memberships.
 
 - **Carla Cotas:** A junior data analyst working in the marketing analytics team. My team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, my team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve the recommendations, so they must be backed up with compelling data insights and professional data visualizations. 
 
