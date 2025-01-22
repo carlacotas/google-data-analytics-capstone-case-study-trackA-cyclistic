@@ -81,7 +81,7 @@ The local directory, folders, sub-folders and file-naming conventions follow the
   |-- 1.OriginalData
   |-- 2.PreparedData
   |-- 3.UploadedData
-    |-- 20141202
+    |-- 20241202
   |-- 4.Analysis
     |-- DataErrors
       |-- AumaticallyExcludedResults
